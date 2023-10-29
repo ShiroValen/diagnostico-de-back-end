@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="DataClasses">
+  <DataContextMoniker Name="/DataClassesDataContext" />
+  <nestedChildShapes>
+    <classShape Id="46aa7101-386a-445f-a26c-a727ef56fa9f" absoluteBounds="6.375, 3.625, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/DataClassesDataContext/bebidas" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c34c8e6d-eb74-4f1e-a758-310a69441309" absoluteBounds="6.39, 4.085, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="121c2b1b-a7a7-4ac7-be6e-ed399b66cbb4" absoluteBounds="4.375, 6, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/DataClassesDataContext/tipos_de_cafe" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d6f2329a-7975-473a-a371-dcc529ce1b63" absoluteBounds="4.39, 6.46, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.60156375 : 6); (5.60156375 : 5.00657190755208); (6.375 : 5.00657190755208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DataClassesDataContext/tipos_de_cafe/tipos_de_cafe_bebidas" />
+      <nodes>
+        <classShapeMoniker Id="121c2b1b-a7a7-4ac7-be6e-ed399b66cbb4" />
+        <classShapeMoniker Id="46aa7101-386a-445f-a26c-a727ef56fa9f" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="65b99be0-d195-4783-b5f0-0466445abdd8" absoluteBounds="4.125, 2, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/DataClassesDataContext/usuarios" />
+      <nestedChildShapes>
+        <elementListCompartment Id="50e72a67-ac73-4ed0-abf7-59f439722105" absoluteBounds="4.14, 2.46, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ebb2758a-82b3-4479-ae62-c97994e10d67" absoluteBounds="1.5, 3.5, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/DataClassesDataContext/ventas" />
+      <nestedChildShapes>
+        <elementListCompartment Id="866128df-3943-466a-a9de-a8c2f71f9a22" absoluteBounds="1.5150000000000006, 3.96, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(6.375 : 4.24858950661214); (3.5 : 4.24858950661214)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DataClassesDataContext/bebidas/bebidas_ventas" />
+      <nodes>
+        <classShapeMoniker Id="46aa7101-386a-445f-a26c-a727ef56fa9f" />
+        <classShapeMoniker Id="ebb2758a-82b3-4479-ae62-c97994e10d67" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(4.8281225 : 6); (4.8281225 : 4.99717901322428); (3.5 : 4.99717901322428)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DataClassesDataContext/tipos_de_cafe/tipos_de_cafe_ventas" />
+      <nodes>
+        <classShapeMoniker Id="121c2b1b-a7a7-4ac7-be6e-ed399b66cbb4" />
+        <classShapeMoniker Id="ebb2758a-82b3-4479-ae62-c97994e10d67" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

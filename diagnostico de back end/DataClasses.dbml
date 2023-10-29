@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="cafecito" Class="DataClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=SHIROVALEN\SQLEXPRESS;Initial Catalog=cafecito;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="cafecitoConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.bebidas" Member="bebidas">
+    <Type Name="bebidas">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Precio" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="ID_Cafes" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="bebidas_ventas" Member="ventas" ThisKey="ID" OtherKey="ID_Bebida" Type="ventas" />
+      <Association Name="tipos_de_cafe_bebidas" Member="tipos_de_cafe" ThisKey="ID_Cafes" OtherKey="ID_Cafe" Type="tipos_de_cafe" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tipos_de_cafe" Member="tipos_de_cafe">
+    <Type Name="tipos_de_cafe">
+      <Column Name="ID_Cafe" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Cuerpo" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Aroma" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Acidez" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="tipos_de_cafe_bebidas" Member="bebidas" ThisKey="ID_Cafe" OtherKey="ID_Cafes" Type="bebidas" />
+      <Association Name="tipos_de_cafe_ventas" Member="ventas" ThisKey="ID_Cafe" OtherKey="ID_TipoCafe" Type="ventas" />
+    </Type>
+  </Table>
+  <Table Name="dbo.usuarios" Member="usuarios">
+    <Type Name="usuarios">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="usuario" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="password" Type="System.Decimal" DbType="Decimal(4,0) NOT NULL" CanBeNull="false" />
+      <Column Name="rol" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ventas" Member="ventas">
+    <Type Name="ventas">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ID_Bebida" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ID_TipoCafe" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FechaVenta" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="PrecioTotal" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Association Name="bebidas_ventas" Member="bebidas" ThisKey="ID_Bebida" OtherKey="ID" Type="bebidas" IsForeignKey="true" />
+      <Association Name="tipos_de_cafe_ventas" Member="tipos_de_cafe" ThisKey="ID_TipoCafe" OtherKey="ID_Cafe" Type="tipos_de_cafe" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.VerificarCredenciales" Method="VerificarCredenciales">
+    <Parameter Name="NombreUsuario" Parameter="nombreUsuario" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Contraseña" Parameter="contraseña" Type="System.Decimal" DbType="Decimal(4,0)" />
+    <Parameter Name="Rol" Parameter="rol" Type="System.String" DbType="VarChar(50)" Direction="InOut" />
+    <ElementType Name="VerificarCredencialesResult">
+      <Column Name="Mensaje" Type="System.String" DbType="VarChar(24) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+</Database>
